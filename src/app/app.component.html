@@ -1,10 +1,15 @@
-<!DOCTYPE html>
-<html>
-<body>
-
-<h1>{{title}}</h1>
-<p>{{fullName}}</p>
-
-
-</body>
-</html>
+<div>
+  <h1>{{ title }}</h1>
+  <div *ngIf="hairProducts.length > 0; else noProducts">
+    <div *ngFor="let product of hairProducts" class="product-card">
+      <h2>{{ product.name }}</h2>
+      <p><strong>Type:</strong> {{ product.type }}</p>
+      <p><strong>Price:</strong> ${{ product.price }}</p>
+      <p><strong>Organic:</strong> {{ product.isOrganic ? 'Yes' : 'No' }}</p>
+      <p *ngIf="product.description"><strong>Description:</strong> {{ product.description }}</p>
+    </div>
+  </div>
+  <ng-template #noProducts>
+    <p>No hair products available.</p>
+  </ng-template>
+</div>
