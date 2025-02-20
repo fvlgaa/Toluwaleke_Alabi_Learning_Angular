@@ -1,11 +1,8 @@
 <p>hair-list works!</p>
-<div class="hair-list">
-  <h1>Hair Products</h1>
+<h1>Hair List</h1>
 
-  <app-hair-list-item
-    *ngFor="let item of hairList"
-    [product]="item">
-  </app-hair-list-item>
+<div *ngFor="let hair of hairList; let i = index">
+  <app-hair-list-item [product]="hair" [ngClass]="{'even-item': i % 2 === 0, 'odd-item': i % 2 === 1}" ></app-hair-list-item>
 
 </div>
 
