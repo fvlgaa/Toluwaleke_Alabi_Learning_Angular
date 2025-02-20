@@ -2,9 +2,11 @@
 <div class="hair-list">
   <h1>Hair Products</h1>
 
-  <app-hair-list-item></app-hair-list-item>
-  <app-hair-list-item></app-hair-list-item>
-  <app-hair-list-item></app-hair-list-item>
-  <app-hair-list-item></app-hair-list-item>
+  <app-hair-list-item
+    *ngFor="let item of hairList"
+    [product]="item">
+  </app-hair-list-item>
+
 </div>
+
 
