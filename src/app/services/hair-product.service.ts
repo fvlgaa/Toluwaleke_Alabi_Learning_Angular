@@ -42,5 +42,8 @@ export class HairProductService {
     const foundProduct = this.hairProducts.find(product => product.id === hairProductId);
     return of(foundProduct);  // Return the found product or undefined
   }
+  getAllContent(): Observable<HairProduct[]> {
+    return of(hairList);  // Return the hairList array as an observable
+  }
 }
 
