@@ -1,1 +1,7 @@
-<app-hair-list></app-hair-list>
+<div>
+  <!-- Display the single ContentListItem here -->
+  <app-hair-list-item *ngIf="contentItem" [product]="contentItem"></app-hair-list-item>
+
+  <!-- The ContentList (HairList) below -->
+  <app-hair-list></app-hair-list>
+</div>
