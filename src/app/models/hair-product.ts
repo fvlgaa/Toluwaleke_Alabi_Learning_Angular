@@ -5,4 +5,5 @@ export interface HairProduct {
   price: number;
   isOrganic: boolean;
   description?: string;
+  imageUrl: string;
 }
