@@ -1,3 +1,10 @@
+<nav>
+  <a routerLink="/HairProduct">Home</a> |
+  <a routerLink="/modify-hair-product">Modify Hair Product</a>
+</nav>
+<router-outlet></router-outlet>
+
+
 <div>
   <!-- Display the single ContentListItem here -->
   <app-hair-list-item *ngIf="contentItem" [product]="contentItem"></app-hair-list-item>
