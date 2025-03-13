@@ -1,1 +1,43 @@
-<p>modify-hair-product-item works!</p>
+<form [formGroup]="hairProduct" (ngSubmit)="onSubmit()" class="hair-product">
+
+  <div class="form-group">
+    <label for="id">ID</label>
+    <input type="number" id="id" formControlName="id" class="form-input" />
+  </div>
+
+  <div class="form-group">
+    <label for="name">Hair Product Name</label>
+    <input type="text" id="name" formControlName="name" class="form-input" />
+  </div>
+
+  <div class="form-group">
+    <label for="type">Hair Type</label>
+    <input type="text" id="type" formControlName="type" class="form-input" />
+  </div>
+
+  <div class="form-group">
+    <label for="price">Price</label>
+    <input type="number" id="price" formControlName="price" class="form-input" />
+  </div>
+
+  <div class="form-group">
+    <label for="isOrganic" class="checkbox-label">Is Organic</label>
+    <input type="checkbox" id="isOrganic" formControlName="isOrganic" class="form-checkbox" />
+  </div>
+
+  <div class="form-group">
+    <label for="description">Description</label>
+    <textarea id="description" formControlName="description" class="form-input"></textarea>
+  </div>
+
+  <div class="form-group">
+    <label for="imageUrl">Image URL</label>
+    <input type="text" id="imageUrl" formControlName="imageUrl" class="form-input" />
+  </div>
+
+  <div class="form-buttons">
+    <button type="button" (click)="onAdd()" class="btn add-btn">Add</button>
+    <button type="button" (click)="onUpdate()" class="btn update-btn">Update</button>
+  </div>
+</form>
+
