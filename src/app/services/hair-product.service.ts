@@ -1,74 +1,47 @@
 import { Injectable } from '@angular/core';
-import { hairList } from "../models/mock/mockData-hair";
-import { Observable, of } from "rxjs";
-import { HairProduct } from "../models/hair-product";
+import { Observable, of } from 'rxjs';
+import { HairProduct } from '../models/hair-product';
+import { hairList } from '../models/mock/mockData-hair';  // Import your mock data
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class HairProductService {
   private hairProducts: HairProduct[] = hairList;
 
-  constructor() { }
+  constructor() {}
 
-  getHairProducts(): Observable<HairProduct[]> {
-    return of(this.hairProducts);
-  }
-
+  // Add this method to retrieve all hair products
   getAllContent(): Observable<HairProduct[]> {
     return of(this.hairProducts);
   }
 
-  addHairProduct(newHairProduct: HairProduct): Observable<HairProduct[]> {
-    this.hairProducts.push(newHairProduct);
-    return of(this.hairProducts);
+  getHairProductById(id: number): Observable<HairProduct | undefined> {
+    const product = this.hairProducts.find((p) => p.id === id);
+    return of(product);  // Return the found product or undefined
   }
 
-  updateHairProduct(updatedHairProduct: HairProduct): Observable<HairProduct[]> {
-    const index = this.hairProducts.findIndex(product => product.id === updatedHairProduct.id);
+  // Add a new hair product
+  addHairProduct(newProduct: HairProduct): Observable<HairProduct[]> {
+    this.hairProducts.push(newProduct);  // Push new product into the list
+    return of(this.hairProducts);  // Return updated list
+  }
+
+  // Update an existing hair product
+  updateHairProduct(updatedProduct: HairProduct): Observable<HairProduct[]> {
+    const index = this.hairProducts.findIndex((product) => product.id === updatedProduct.id);
     if (index !== -1) {
-      this.hairProducts[index] = updatedHairProduct;
+      this.hairProducts[index] = updatedProduct;  // Replace the old product with the updated one
     }
-    return of(this.hairProducts);
+    return of(this.hairProducts);  // Return updated list
   }
 
-  deleteHairProduct(hairProductId: number): Observable<HairProduct[]> {
-    const index = this.hairProducts.findIndex(product => product.id === hairProductId);
+  // Delete a hair product by ID
+  deleteHairProduct(id: number): Observable<HairProduct[]> {
+    const index = this.hairProducts.findIndex((product) => product.id === id);
     if (index !== -1) {
-      this.hairProducts.splice(index, 1);
+      this.hairProducts.splice(index, 1);  // Remove product from the list
     }
-    return of(this.hairProducts);
-  }
-
-  getHairProductById(hairProductId: number): Observable<HairProduct | undefined> {
-    const foundProduct = this.hairProducts.find(product => product.id === hairProductId);
-    return of(foundProduct);
-  }
-
-  getHairProductByIdNumber(id: number): Observable<HairProduct | undefined> {
-    const foundProduct = this.hairProducts.find(product => product.id === id);
-    return of(foundProduct);
-  }
-
-  addHairProductAndReturnArray(newProduct: HairProduct): Observable<HairProduct[]> {
-    this.hairProducts.push(newProduct);
-    return of(this.hairProducts);
-  }
-
-  updateHairProductAndReturnArray(updatedProduct: HairProduct): Observable<HairProduct[]> {
-    const index = this.hairProducts.findIndex(product => product.id === updatedProduct.id);
-    if (index !== -1) {
-      this.hairProducts[index] = updatedProduct;
-    }
-    return of(this.hairProducts);
-  }
-
-  removeHairProductByIdAndReturnRemoved(id: number): Observable<HairProduct | undefined> {
-    const index = this.hairProducts.findIndex(product => product.id === id);
-    if (index !== -1) {
-      const removedProduct = this.hairProducts.splice(index, 1)[0];
-      return of(removedProduct);
-    }
-    return of(undefined);
+    return of(this.hairProducts);  // Return updated list
   }
 }

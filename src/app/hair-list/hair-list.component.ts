@@ -2,11 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import { HairProduct } from '../models/hair-product';
 import { HairProductService } from '../services/hair-product.service';
 import { Router } from '@angular/router';
+import {NgClass, NgForOf, NgIf} from '@angular/common';
+import {HairListItemComponent} from '../hair-list-item/hair-list-item.component';
 
 @Component({
   selector: 'app-hair-list',
   standalone: true,
-  imports: [],
+  imports: [
+    NgIf,
+    NgForOf,
+    HairListItemComponent,
+    NgClass
+  ],
   templateUrl: './hair-list.component.html',
   styleUrls: ['./hair-list.component.css']
 })
