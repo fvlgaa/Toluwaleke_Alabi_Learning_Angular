@@ -5,5 +5,5 @@
   <p><strong>Price:</strong> ${{ product.price }}</p>
   <p><strong>Organic:</strong> {{ product.isOrganic ? 'Yes' : 'No' }}</p>
   <p *ngIf="product.description"><strong>Description:</strong> {{ product.description }}</p>
-  <img ngSrc="product.imageUrl" alt="{{ product.name }}" class="product-image" />
+    <img src="{{product.imageUrl}}" alt="{{ product.name }}" class="product-image" />
 </div>

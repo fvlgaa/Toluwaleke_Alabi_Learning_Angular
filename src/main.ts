@@ -14,6 +14,7 @@ const routes: Routes =[
   {path:'', redirectTo: '/HairProduct', pathMatch: 'full'},
   {path: 'HairProduct', component:HairListComponent},
   {path: 'HairProduct/:id', component: HairListItemComponent},
+  {path: 'modify-hair-product/:id', component: ModifyHairProductItemComponent},
   {path: 'modify-hair-product', component: ModifyHairProductItemComponent},
   {path:"**", component:PageNotFoundComponent}
 ]

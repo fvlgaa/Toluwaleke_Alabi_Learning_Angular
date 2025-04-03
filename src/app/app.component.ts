@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet, RouterModule } from '@angular/router';
 import { HairProduct } from './models/hair-product';
 import {HairProductService} from './services/hair-product.service';
 import {NgIf} from '@angular/common';
 import {HairListItemComponent} from './hair-list-item/hair-list-item.component';
 import {HairListComponent} from './hair-list/hair-list.component';
 
+
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NgIf, HairListItemComponent, HairListComponent],
+  imports: [RouterOutlet, NgIf, HairListItemComponent, HairListComponent, RouterModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
