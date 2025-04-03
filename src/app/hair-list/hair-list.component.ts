@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HairProduct } from '../models/hair-product';
 import { HairProductService } from '../services/hair-product.service';
 import { Router, RouterModule } from '@angular/router';
-import {NgClass, NgForOf, NgIf} from '@angular/common';
+import {NgClass, NgForOf, NgIf, UpperCasePipe,CurrencyPipe} from '@angular/common';
 import {HairListItemComponent} from '../hair-list-item/hair-list-item.component';
 
 @Component({
@@ -13,7 +13,9 @@ import {HairListItemComponent} from '../hair-list-item/hair-list-item.component'
     NgForOf,
     HairListItemComponent,
     NgClass,
-    RouterModule
+    RouterModule,
+    CurrencyPipe,
+    UpperCasePipe
   ],
   templateUrl: './hair-list.component.html',
   styleUrls: ['./hair-list.component.css']
