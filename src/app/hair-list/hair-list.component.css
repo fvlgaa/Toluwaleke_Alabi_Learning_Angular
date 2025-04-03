@@ -13,3 +13,7 @@
 .odd {
   background-color: teal;
 }
+button:focus {
+  outline: none; /* Remove default outline */
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.2);
+}

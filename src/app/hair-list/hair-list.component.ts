@@ -4,10 +4,10 @@ import { HairProductService } from '../services/hair-product.service';
 import { Router, RouterModule } from '@angular/router';
 import {NgClass, NgForOf, NgIf, UpperCasePipe,CurrencyPipe} from '@angular/common';
 import {HairListItemComponent} from '../hair-list-item/hair-list-item.component';
+import {HoverHighlightDirective} from "../directives/hover-highlight.directive";
+import {FocusDirective} from '../directives/focus.directive';
 
 @Component({
-  selector: 'app-hair-list',
-  standalone: true,
   imports: [
     NgIf,
     NgForOf,
@@ -15,10 +15,14 @@ import {HairListItemComponent} from '../hair-list-item/hair-list-item.component'
     NgClass,
     RouterModule,
     CurrencyPipe,
-    UpperCasePipe
+    UpperCasePipe,
+    HoverHighlightDirective,
+    FocusDirective
   ],
-  templateUrl: './hair-list.component.html',
-  styleUrls: ['./hair-list.component.css']
+  selector: 'app-hair-list',
+  standalone: true,
+  styleUrls: ['./hair-list.component.css'],
+  templateUrl: './hair-list.component.html'
 })
 export class HairListComponent implements OnInit {
   hairList: HairProduct[] = [];
