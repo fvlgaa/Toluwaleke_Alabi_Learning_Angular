@@ -6,6 +6,11 @@ import {NgClass, NgForOf, NgIf, UpperCasePipe,CurrencyPipe} from '@angular/commo
 import {HairListItemComponent} from '../hair-list-item/hair-list-item.component';
 import {HoverHighlightDirective} from "../directives/hover-highlight.directive";
 import {FocusDirective} from '../directives/focus.directive';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
+
 
 @Component({
   imports: [
@@ -17,8 +22,13 @@ import {FocusDirective} from '../directives/focus.directive';
     CurrencyPipe,
     UpperCasePipe,
     HoverHighlightDirective,
-    FocusDirective
+    FocusDirective,
+    MatCardModule,
+    MatButtonModule,
+    MatIconModule,
+    MatToolbarModule
   ],
+
   selector: 'app-hair-list',
   standalone: true,
   styleUrls: ['./hair-list.component.css'],

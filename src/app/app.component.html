@@ -1,14 +1,13 @@
-<nav>
-  <a routerLink="/HairProduct">Home</a> |
-  <a routerLink="/modify-hair-product">Modify Hair Product</a>
-</nav>
+<mat-toolbar color="primary" class="mat-elevation-z4">
+  <span class="toolbar-title">Hair Product Manager</span>
+  <span class="spacer"></span>
+  <button mat-button routerLink="/HairProduct">Home</button>
+  <button mat-button routerLink="/modify-hair-product">Modify Product</button>
+</mat-toolbar>
+
 <router-outlet></router-outlet>
 
-
-<div>
-  <!-- Display the single ContentListItem here -->
+<div class="content-section">
   <app-hair-list-item *ngIf="contentItem" [product]="contentItem"></app-hair-list-item>
-
-  <!-- The ContentList (HairList) below -->
   <app-hair-list></app-hair-list>
 </div>

@@ -47,3 +47,20 @@ button[type="submit"] {
   color: red;
   font-size: 12px;
 }
+.modify-form-card {
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 20px;
+  border-radius: 16px;
+}
+
+mat-form-field {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}

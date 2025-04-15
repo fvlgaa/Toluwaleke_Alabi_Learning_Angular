@@ -1,48 +1,55 @@
-<form [formGroup]="modifyForm" (ngSubmit)="onSubmit()">
-  <h1>{{ hairProduct ? 'Edit Hair Product' : 'Add Hair Product' }}</h1>
+<mat-card class="modify-form-card">
+  <mat-card-title>
+    {{ hairProduct ? 'Edit Hair Product' : 'Add Hair Product' }}
+  </mat-card-title>
+  <form [formGroup]="modifyForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="outline">
+      <mat-label>Product Name</mat-label>
+      <input matInput formControlName="name" matTooltip="Enter product name" />
+      <mat-error *ngIf="modifyForm.get('name')?.invalid && modifyForm.get('name')?.touched">
+        Name is required.
+      </mat-error>
+    </mat-form-field>
 
-  <div class="form-group">
-    <label for="name">Product Name</label>
-    <input id="name" formControlName="name" />
-    <div *ngIf="modifyForm.get('name')?.invalid && modifyForm.get('name')?.touched">
-      <small class="error">Name is required.</small>
+    <mat-form-field appearance="outline">
+      <mat-label>Product Type</mat-label>
+      <input matInput formControlName="type" matTooltip="e.g. Shampoo, Conditioner" />
+      <mat-error *ngIf="modifyForm.get('type')?.invalid && modifyForm.get('type')?.touched">
+        Type is required.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Price</mat-label>
+      <input matInput type="number" formControlName="price" matTooltip="Enter price (USD)" />
+      <mat-error *ngIf="modifyForm.get('price')?.invalid && modifyForm.get('price')?.touched">
+        Price must be a positive number.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Description (optional)</mat-label>
+      <textarea matInput formControlName="description" matTooltip="Optional: Add product details"></textarea>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Image URL</mat-label>
+      <input matInput formControlName="imageUrl" matTooltip="Paste an image link (required)" />
+      <mat-error *ngIf="modifyForm.get('imageUrl')?.invalid && modifyForm.get('imageUrl')?.touched">
+        Image URL is required.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-checkbox formControlName="isOrganic" matTooltip="Check if the product is organic">
+      Organic
+    </mat-checkbox>
+
+    <div class="form-actions">
+      <button mat-raised-button color="primary" type="button" *ngIf="!hairProduct"
+              [disabled]="modifyForm.invalid" (click)="onAdd()">Add</button>
+
+      <button mat-raised-button color="accent" type="button" *ngIf="hairProduct"
+              [disabled]="modifyForm.invalid" (click)="onUpdate()">Update</button>
     </div>
-  </div>
-
-  <div class="form-group">
-    <label for="type">Product Type</label>
-    <input id="type" formControlName="type" />
-    <div *ngIf="modifyForm.get('type')?.invalid && modifyForm.get('type')?.touched">
-      <small class="error">Type is required.</small>
-    </div>
-  </div>
-
-  <div class="form-group">
-    <label for="price">Price</label>
-    <input id="price" formControlName="price" type="number" />
-    <div *ngIf="modifyForm.get('price')?.invalid && modifyForm.get('price')?.touched">
-      <small class="error">Price is required and must be a positive number.</small>
-    </div>
-  </div>
-
-  <div class="form-group">
-    <label for="isOrganic">Organic</label>
-    <input type="checkbox" id="isOrganic" formControlName="isOrganic" />
-  </div>
-
-  <div class="form-group">
-    <label for="description">Description (optional)</label>
-    <textarea id="description" formControlName="description"></textarea>
-  </div>
-
-  <div class="form-group">
-    <label for="imageUrl">Image URL</label>
-    <input id="imageUrl" formControlName="imageUrl" />
-    <div *ngIf="modifyForm.get('imageUrl')?.invalid && modifyForm.get('imageUrl')?.touched">
-      <small class="error">Image URL is required.</small>
-    </div>
-  </div>
-
-  <button type="button" *ngIf="!hairProduct" (click)="onAdd()" [disabled]="modifyForm.invalid">Add</button>
-  <button type="button" *ngIf="hairProduct" (click)="onUpdate()" [disabled]="modifyForm.invalid">Update</button>
-</form>
+  </form>
+</mat-card>

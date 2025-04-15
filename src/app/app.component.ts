@@ -6,14 +6,25 @@ import {NgIf} from '@angular/common';
 import {HairListItemComponent} from './hair-list-item/hair-list-item.component';
 import {HairListComponent} from './hair-list/hair-list.component';
 
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NgIf, HairListItemComponent, HairListComponent, RouterModule],
+  imports: [
+    RouterOutlet,
+    RouterModule,
+    NgIf,
+    HairListItemComponent,
+    HairListComponent,
+    MatToolbarModule,
+    MatButtonModule
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
+
 export class AppComponent implements OnInit {
 
   title = 'lekes hair products';

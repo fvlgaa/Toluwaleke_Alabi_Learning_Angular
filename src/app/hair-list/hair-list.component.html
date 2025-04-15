@@ -1,25 +1,29 @@
-<h1>Hair List</h1>
+<mat-toolbar color="primary">
+  <span>Hair List</span>
+</mat-toolbar>
 
 <div *ngIf="hairList.length === 0">
-  <p>No products available</p>
+  <mat-card>
+    <mat-card-content>
+      <p>No products available</p>
+    </mat-card-content>
+  </mat-card>
 </div>
 
 <div *ngFor="let hair of hairList; let i = index" class="hair-product-item">
-  <app-hair-list-item
-    [product]="hair"
-    [ngClass]="{'even-item': i % 2 === 0, 'odd-item': i % 2 === 1}">
-  </app-hair-list-item>
+  <mat-card class="hair-card" [ngClass]="{'even-item': i % 2 === 0, 'odd-item': i % 2 === 1}">
+    <mat-card-content>
+      <app-hair-list-item [product]="hair"></app-hair-list-item>
+    </mat-card-content>
+    <mat-card-actions class="action-buttons">
+      <button mat-raised-button color="accent" (click)="onEdit(hair.id)" [appFocus]="'lightblue'" [appHoverHighlight]="'lightyellow'">
+        <mat-icon>edit</mat-icon> Edit
+      </button>
+      <button mat-raised-button color="warn" (click)="onDelete(hair.id)" [appFocus]="'lightcoral'" [appHoverHighlight]="'lightgreen'">
+        <mat-icon>delete</mat-icon> Delete
+      </button>
 
-  <div class="action-buttons">
-    <button
-      (click)="onEdit(hair.id)"
-      class="btn edit-btn"
-      [appFocus]="'lightblue'"
-      [appHoverHighlight]="'lightyellow'">Edit</button>
-    <button
-      (click)="onDelete(hair.id)"
-      class="btn delete-btn"
-      [appFocus]="'lightcoral'"
-      [appHoverHighlight]="'lightgreen'">Delete</button>
-  </div>
+
+    </mat-card-actions>
+  </mat-card>
 </div>

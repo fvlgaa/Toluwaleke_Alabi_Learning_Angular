@@ -135,3 +135,22 @@ button.delete-btn:hover {
 button + button {
   margin-left: 10px;
 }
+
+.mat-toolbar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.toolbar-title {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.content-section {
+  padding: 20px;
+}
+

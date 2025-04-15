@@ -5,13 +5,32 @@ import { HairProductService } from '../../services/hair-product.service';
 import { HairProduct } from '../../models/hair-product';
 import { CommonModule } from '@angular/common';  // Import CommonModule instead of NgIf
 
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+
 @Component({
   selector: 'app-modify-hair-product-item',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule],  // Use CommonModule
+  imports: [
+    ReactiveFormsModule,
+    CommonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatTooltipModule,
+    MatCheckboxModule,
+    MatButtonModule,
+    MatIconModule,
+    MatCardModule,
+  ],
   styleUrls: ['./modify-hair-product-item.component.css'],
   templateUrl: './modify-hair-product-item.component.html'
 })
+
 export class ModifyHairProductItemComponent implements OnInit {
   modifyForm!: FormGroup;
   hairProduct: HairProduct | undefined;

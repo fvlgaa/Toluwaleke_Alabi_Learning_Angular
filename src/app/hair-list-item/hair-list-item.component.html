@@ -1,9 +1,18 @@
-<p>hair-list-item works!</p>
-<div class="hair-product">
-  <h2>{{ product.name }}</h2>
-  <p><strong>Type:</strong> {{ product.type }}</p>
-  <p><strong>Price:</strong> ${{ product.price }}</p>
-  <p><strong>Organic:</strong> {{ product.isOrganic | organicLabel  }}</p>
-  <p *ngIf="product.description"><strong>Description:</strong> {{ product.description }}</p>
-    <img src="{{product.imageUrl}}" alt="{{ product.name }}" class="product-image" />
-</div>
+<mat-card class="hair-item-card">
+  <mat-card-header>
+    <mat-card-title>{{ product.name }}</mat-card-title>
+    <mat-chip color="primary" selected>{{ product.type | uppercase }}</mat-chip>
+  </mat-card-header>
+
+  <img mat-card-image [src]="product.imageUrl" [alt]="product.name" />
+
+  <mat-card-content>
+    <p><strong>Price:</strong> {{ product.price | currency }}</p>
+    <p><strong>Organic:</strong> {{ product.isOrganic | organicLabel }}</p>
+    <p *ngIf="product.description">
+      <strong>Description:</strong> {{ product.description }}
+    </p>
+  </mat-card-content>
+
+  <mat-divider></mat-divider>
+</mat-card>
